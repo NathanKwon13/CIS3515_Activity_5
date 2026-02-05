@@ -6,7 +6,6 @@ import android.view.View
 import android.widget.*
 import android.widget.AdapterView.OnItemSelectedListener
 
-// TODO Replace ArrayAdapter with your implementation of TextSizeAdapter
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,11 +16,11 @@ class MainActivity : AppCompatActivity() {
         val displayTextView = findViewById<TextView>(R.id.textDisplay)
 
         /* Step 1: Populate this array */
-        val numberArray = Array(50){i -> (i + 1) * 2}
+        val numberArray = Array<Int>(50){i -> (i + 1) * 2}
 
         with (spinner) {
             /* Step 2: Create adapter to display items from array in Spinner */
-            adapter = ArrayAdapter(this@MainActivity, android.R.layout.simple_spinner_item, numberArray)
+            adapter = TextSizeAdapter(this@MainActivity,numberArray)
 
 
             // Step 3: Change TextView's text size to the number selected in the Spinner */
